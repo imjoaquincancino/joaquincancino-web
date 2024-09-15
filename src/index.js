@@ -1,17 +1,51 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const app = express();
+const server = require("http").createServer(app);
+const MemoryStore = require("memorystore")(session);
+
+app.use(
+  session({
+    store: new MemoryStore({ checkPeriod: 86400000 }),
+    secret:
+      "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
+    resave: false,
+    saveUninitialized: false,
+  })
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.use(express.static(path.join(__dirname, "public")));
+
+// Routers
+app.use("/", require("./routers/main.js"));
+
+// 404 Error page
+app.get("*", (req, res) => {
+  res.status(404).render("partials/404", {
+    title: "Error 404",
+  });
+});
+
+const port = 3000;
+
+process.on("uncaughtException", (err) => {
+  console.log(err);
+});
+
+server.listen(port, () => {
+  console.log(`Server listen on port ${port}`);
+});

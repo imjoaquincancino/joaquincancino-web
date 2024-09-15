@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <title><%= title %> - Desarrollador Web</title>
+    <meta property="og:title" content="Joaquín Cancino - Desarrollador Web en Puerto Varas" />
+    <%- include('partials/head'); -%>
+    
+</head>
+<body>
+    <%- include("partials/navbar") %>
+
+    <main>
+        <section id="inicio" class="welcome-section bg-black">
+            <div class="welcome-background bg-[url('/img/volcan-osorno-bg.jpg')] bg-cover bg-center size-full top-0 left-0 absolute"></div>
+            <div class="welcome-content text-white text-center h-full flex flex-col items-center justify-center">
+                <div class="p-5">
+                    <p class="text-3xl mb-8 animate__animated animate__fadeInUp animate__delay-1s"><span class="waving-hand">👋</span> ¡Hola! Mi nombre es Joaquín Cancino 🧑🏻‍💻</p>
+                    <h1 class="text-5xl font-bold animate__animated animate__fadeInDown">Programador y Diseñador Web en Puerto Varas</h1>
+                </div>
+                <div class="cta">
+                    <a class="fa fa-angle-down page-scroll p-3 mt-28 text-4xl" href="#sobre-mi"></a>
+                </div>
+            </div>
+        </section>
+        <section id="sobre-mi" class="w-full py-20 md:py-24 lg:py-32 bg-white">
+            <div class="px-24 md:px-48 lg:px-72 flex justify-center items-center flex-col">
+                <div>
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">Sobre mí</h2>
+                    <img class="h-52 w-52" src="/img/mf-avatar.svg" alt="Foto de Joaquín">
+                </div>
+                <div class="mt-8">
+                    <p class="leading-normal text-xl text-center">Ayudo a emprendedores y empresas locales en Puerto Varas y Ensenada a mejorar su presencia online con sitios web modernos, optimizados y adaptados a sus necesidades. Con mi experiencia en desarrollo web, garantizo que tu página destaque tanto en diseño como en funcionalidad.</p>
+                </div>
+            </div>
+        </section>
+        <section id="portafolio" class="w-full py-12 md:py-24 lg:py-32 bg-gray-700">
+            <div class="container px-4 md:px-6 mx-auto">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-white">Mi Portafolio</h2>
+                <div class="grid gap-6 lg:grid-cols-3">
+                    <% portfolio.forEach(function(item) { %>
+                        <div class="rounded-lg border border-gray-700 bg-gray-800 text-gray-100 shadow-sm">
+                            <div class="p-4">
+                                <a href="https://viveroensenada.cl" target="_blank">
+                                    <img
+                                    alt="Proyecto <%= item.name %>"
+                                    class="object-cover w-full h-60 rounded-lg"
+                                    height="240"
+                                    src="<%= item.img %>"
+                                    style="aspect-ratio: 360/240; object-fit: cover;"
+                                    width="360"
+                                    />
+                                </a>
+                                <h3 class="mt-4 text-xl font-bold">Proyecto <%= item.name %></h3>
+                                <p class="mt-2 text-gray-400"><%= item.description %></p>
+                                <a href="<%= item.url %>" class="mt-4 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none border border-gray-700 text-white hover:bg-gray-700 h-10 py-2 px-4">
+                                    Ver Detalles
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="w-full py-12 md:py-24 lg:py-32 bg-gray-800">
+            <div class="container px-4 md:px-6 mx-auto">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-white">Contáctame</h2>
+                <div class="mx-auto max-w-lg flex flex-col justify-items-center">
+                    <p class="text-center text-gray-400 mb-8">
+                        🚀 ¿Listo para llevar tu presencia online al siguiente nivel? Contáctame para discutir tu proyecto y hacer algo increible juntos. 🤩
+                    </p>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=56965926195&text=Hola%2C%20vengo%20de%20tu%20pagina%20web." class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none border-white border text-white hover:bg-gray-700 rounded-full w-auto h-11 px-8">
+                        Enviar Mensaje
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include("partials/footer") %>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const welcomeBackground = document.querySelector('.welcome-background');
+                const welcomeContent = document.querySelector('.welcome-content');
+                
+                welcomeBackground.style.filter = 'blur(5px)';
+                welcomeContent.style.opacity = '1';
+            }, 1000); // Espera 2 segundos antes de aplicar el efecto
+        });
+    </script>
+</body>
+</html>
