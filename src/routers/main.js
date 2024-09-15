@@ -18,4 +18,9 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/manifest.json", (req, res) => {
+  const manifest = require("../public/img/favicon/manifest.json");
+  res.send(manifest)
+});
+
 module.exports = router;
