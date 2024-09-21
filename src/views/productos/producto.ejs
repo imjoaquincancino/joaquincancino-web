@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 8px;
+    }
+    .product-title {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .product-price {
+      color: #2c3e50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Producto</h2>
+
+  <% if (product) { %>
+    <div>
+          <div>
+            <h1><%= product.productTitle %></h1>
+            <p><%= product.productDescription %></p>
+            <img src="<%= product.productImages[0] %>" alt="<%= product.productTitle %>" width="200px" />
+            <p>Precio: $<%= product.productPrice %></p>
+          </div>
+      </div>
+  <% } else { %>
+    <p>No existe</p>
+  <% } %>
+
+</body>
+</html>

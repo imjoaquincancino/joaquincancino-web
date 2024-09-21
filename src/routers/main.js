@@ -1,26 +1,30 @@
 const express = require("express");
 const router = express.Router();
+const packages = require("../utils/planes.js");
 
 // Home Page
 router.get("/", (req, res) => {
   const portfolio = [
     {
-      name: "Vivero Ensenada",
+      name: "Proyecto Vivero Ensenada",
       description:
         "Página web de un Vivero. Cuenta con página de inicio, catalogo, contacto, implementación de servicios de Google Maps, Whatsapp y más.",
       url: "https://viveroensenada.cl",
-      img: "/img/vivero-ensenada-web.png",
-    },
+      img: "/img/portfolio/mockup-viveroensenada.webp",
+    }
   ];
+
+
   res.render("main", {
     title: "Joaquín Cancino",
     portfolio,
+    packages
   });
 });
 
 router.get("/manifest.json", (req, res) => {
   const manifest = require("../public/img/favicon/manifest.json");
-  res.send(manifest)
+  res.send(manifest);
 });
 
 module.exports = router;

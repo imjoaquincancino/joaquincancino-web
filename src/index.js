@@ -1,11 +1,18 @@
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const mongoose = require('mongoose');
 
 const app = express();
 const server = require("http").createServer(app);
 const MemoryStore = require("memorystore")(session);
+
+mongoose.connect(process.env.MONGODB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log("DB CONECTED"))
 
 app.use(
   session({
@@ -29,9 +36,12 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routers
 app.use("/", require("./routers/main.js"));
+app.use("/products", require("./routers/productos.js"));
+app.use("/ejemplos", require("./routers/ejemplos.js"));
 
 // 404 Error page
 app.get("*", (req, res) => {
@@ -46,6 +56,6 @@ process.on("uncaughtException", (err) => {
   console.log(err);
 });
 
-server.listen(port, () => {
+server.listen(port, async () => {
   console.log(`Server listen on port ${port}`);
 });
