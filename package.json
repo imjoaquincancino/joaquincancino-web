@@ -6,7 +6,8 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "build:css": "npx tailwindcss -i ./src/public/css/tailwind.css -o ./src/public/css/output.css",
-    "watch:css": "npx tailwindcss -i ./src/public/css/tailwind.css -o ./src/public/css/output.css --watch"
+    "watch:css": "npx tailwindcss -i ./src/public/css/tailwind.css -o ./src/public/css/output.css --watch",
+    "restart": "pm2 restart joaquincancino"
   },
   "keywords": [],
   "author": "",

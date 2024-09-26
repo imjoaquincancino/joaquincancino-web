@@ -34,6 +34,23 @@
                     <p class="leading-normal text-xl text-center">Mi nombre es Joaquín Cancino y ayudo a emprendedores y empresas locales en Puerto Varas y Ensenada a mejorar su presencia online con sitios web modernos, optimizados y adaptados a sus necesidades. Con mis habilidades en desarrollo web, garantizo que tu página destaque tanto en diseño como en funcionalidad.</p>
                 </div>
             </div>
+          </div>
+        </section>
+        <section id="caracteristicas" class="w-full py-20 md:py-24 lg:py-32 bg-blue-950">
+          <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-white">Características de mi Servicio</h2>
+            <div class="grid gap-10 sm:grid-cols-2">
+              <% habilidades.forEach((habilidad) => { %>
+                <div class="flex flex-col items-center space-y-4 text-center bg-white dark:bg-gray-900 p-6 rounded-lg shadow-xl">
+                  <img src="<%= habilidad.img %>" alt="emoji" class="h-12 w-12">
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white"><%= habilidad.name %></h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    <%= habilidad.description %>
+                  </p>
+                </div>
+              <% }) %>
+            </div>
+          </div>
         </section>
         <section id="portafolio" class="w-full py-12 md:py-24 lg:py-32 bg-gray-600">
             <div class="container px-4 md:px-6 mx-auto">
@@ -68,8 +85,8 @@
                                 src="/img/portfolio/new-web-screenshoot.webp"
                                 />
                             </a>
-                            <h3 class="mt-4 text-xl font-bold">Un Proyecto Increible juntos</h3>
-                            <p class="mt-2 text-gray-400">¿Tienes en mente un proyecto? Hagamos algo increible juntos y llevemos tu negocio al siguiente nivel. 🚀</p>
+                            <h3 class="mt-4 text-xl font-bold">Un Proyecto Increible</h3>
+                            <p class="mt-2 text-gray-400">¿Tienes en mente un proyecto? Hagamos algo increible y llevemos tu negocio al siguiente nivel. 🚀</p>
                             <a href="#planes" class="mt-4 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none border border-gray-700 text-white hover:bg-gray-700 h-10 py-2 px-4">
                                 Ver Detalles
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -114,11 +131,11 @@
                             <span>
                               <% if (pkg.beforePrice) { %>
                                 <del class="delete relative decoration-none opacity-60 !text-[<%= pkg.color %>] before:!bg-[<%= pkg.color %>] leading-none">
-                                  <%= pkg.beforePrice %> CLP
+                                  <%= pkg.beforePrice %>
                                 </del>
                               <% } %>
-                              <span class="flex justify-center mb-5 text-[<%= pkg.color %>] font-inter font-bold text-2xl sm:text-3xl">
-                                <%= pkg.price %> CLP
+                              <span class="flex justify-center mb-5 text-[<%= pkg.color %>] font-inter font-bold text-2xl sm:text-3xl items-baseline">
+                                <%= pkg.price %> <span class="ml-1 font-semibold text-sm">CLP/año</span>
                               </span>
                             </span>
                             <div class="text-center p-4 sm:p-10">
@@ -160,10 +177,10 @@
 
         <section id="contacto" class="w-full py-12 md:py-24 lg:py-32 bg-gray-800">
             <div class="container px-4 md:px-6 mx-auto">
-                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-white">Contáctame</h2>
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-white">¿Tienes un proyecto en mente?</h2>
                 <div class="mx-auto max-w-lg flex flex-col justify-items-center">
                     <p class="text-center text-gray-400 mb-8">
-                        🚀 ¿Listo para llevar tu presencia online al siguiente nivel? Contáctame para hacer algo increible juntos o para resolver dudas. 💡
+                        🚀 Contáctame para aclarar dudas o discutir tu proyecto y hacer algo increible.
                     </p>
                     <a target="_blank" href="https://wa.me/56965926195" class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none border-white border text-white hover:bg-gray-700 rounded-full w-auto h-11 px-8">
                         Enviar Mensaje

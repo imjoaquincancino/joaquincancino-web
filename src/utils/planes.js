@@ -6,6 +6,7 @@ const planes = [
       "Ideal para pequeños negocios locales que solo necesitan una presencia online rápida y accesible con un diseño profesional y moderno.",
     price: "100.000",
     beforePrice: "150.000",
+    best: true,
     wspLink:
       "https://api.whatsapp.com/send?phone=56965926195&text=Hola%2C%20me%20interesa%20el%20plan%20Econ%C3%B3mico.",
     features: [
@@ -32,7 +33,6 @@ const planes = [
       "Ideal para negocios como restaurantes o cabañas que necesitan mostrar más detalles de sus servicios y atraer a más clientes online.",
     price: "200.000",
     beforePrice: "300.000",
-    best: true,
     wspLink:
       "https://api.whatsapp.com/send?phone=56965926195&text=Hola%2C%20me%20interesa%20el%20plan%20Avanzado.",
     features: [

@@ -40,7 +40,6 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routers
 app.use("/", require("./routers/main.js"));
-app.use("/products", require("./routers/productos.js"));
 app.use("/ejemplos", require("./routers/ejemplos.js"));
 
 // 404 Error page

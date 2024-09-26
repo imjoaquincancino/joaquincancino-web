@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const packages = require("../utils/planes.js");
+const habilidades = require("../utils/habilidades.js");
 
 // Home Page
 router.get("/", (req, res) => {
@@ -18,7 +19,8 @@ router.get("/", (req, res) => {
   res.render("main", {
     title: "Joaquín Cancino",
     portfolio,
-    packages
+    packages,
+    habilidades
   });
 });
 
